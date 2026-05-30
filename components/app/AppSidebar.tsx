@@ -3,38 +3,57 @@ import { menuItems } from "@/lib/constants";
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
+  SidebarFooter,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "../ui/sidebar";
-import { Brush, Home, Palette, Settings, ShoppingBag } from "lucide-react";
+import { Loader2, Palette, Plus } from "lucide-react";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { useSessionContext } from "@/context/sessionContext";
+import NavUser from "./NavUser";
 
 export default function AppSidebar() {
-
-  const { state } = useSidebar();
-
+  const {session} = useSessionContext();
+  
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar variant="floating">
       <SidebarContent>
-        <SidebarMenu className="p-2 space-y-4">
+        <SidebarMenu className="px-3 py-4 space-y-6">
           <SidebarMenuItem>
-            <div className="p-2 flex gap-2 items-center">
-              <Palette className="size-5 shrink-0"/>
-              {state!=="collapsed" && (<span>Artchive</span>)}
+            <div className="p-2 flex gap-4 items-center text-md font-medium">
+              <Palette className="size-5 shrink-0 text-primary" />
+              <span className="">Artchive</span>
             </div>
           </SidebarMenuItem>
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.id}>
-              <SidebarMenuButton className="flex lg:justify-start [&_svg]:size-5 cursor-pointer">
-                {item.icon}
-                <span>{item.label}</span>
-              </SidebarMenuButton>
+              <Link href={item.href}>
+                <SidebarMenuButton className="flex lg:justify-start [&_svg]:size-5 cursor-pointer gap-4 text-md">
+                  <span className="text-primary">{item.icon}</span>
+                  <span>{item.label}</span>
+                </SidebarMenuButton>
+              </Link>
             </SidebarMenuItem>
           ))}
+          <SidebarMenuItem>
+            <Button className="w-full py-5 cursor-pointer rounded-full font-semibold">
+              <Plus />
+              Post
+            </Button>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
+      <SidebarFooter>
+        {session ? (
+          <NavUser />
+        ) : (
+          <Button variant="outline" asChild className="w-full cursor-pointer">
+            <Link href="/auth/login">Login</Link>
+          </Button>
+        )}
+      </SidebarFooter>
     </Sidebar>
   );
 }

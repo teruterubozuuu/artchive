@@ -50,15 +50,15 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(30.118% 0.00003 271.152);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(86.32% 0.17644 92.358);
+  --primary-foreground: oklch(30.118% 0.00003 271.152);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(30.118% 0.00003 271.152);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -120,11 +120,15 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    --sidebar-width: 14rem;
+    --sidebar-width-icon: 3.5rem;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
-    @apply font-sans;
+    @apply font-sans ;
   }
 }
