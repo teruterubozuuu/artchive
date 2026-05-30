@@ -1,4 +1,4 @@
-import { Brush, HomeIcon, Settings, ShoppingBag } from "lucide-react";
+import { Brush, HomeIcon, Settings, ShoppingBag, UserCircle } from "lucide-react";
 
  export const menuItems = [
     { id: "home", label: "Home", icon: <HomeIcon />, href: "/home" },
@@ -12,12 +12,12 @@ import { Brush, HomeIcon, Settings, ShoppingBag } from "lucide-react";
       id: "commission",
       label: "Commissions",
       icon: <Brush />,
-      href: "/commission",
+      href: "/commissions",
     },
     {
-      id: "settings",
-      label: "Settings",
-      icon: <Settings />,
-      href: "/settings",
+      id: "profile",
+      label: "Profile",
+      icon: <UserCircle/>,
+      href: "/profile",
     },
   ];
