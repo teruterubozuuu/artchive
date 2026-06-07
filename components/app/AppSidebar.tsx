@@ -15,8 +15,8 @@ import { useSessionContext } from "@/context/sessionContext";
 import NavUser from "./NavUser";
 
 export default function AppSidebar() {
-  const {session} = useSessionContext();
-  
+  const { session } = useSessionContext();
+
   return (
     <Sidebar variant="floating">
       <SidebarContent>
@@ -38,10 +38,12 @@ export default function AppSidebar() {
             </SidebarMenuItem>
           ))}
           <SidebarMenuItem>
-            <Button className="w-full py-5 cursor-pointer rounded-full font-semibold">
-              <Plus />
-              Post
-            </Button>
+            <Link href="/create-post">
+              <Button className="w-full py-5 cursor-pointer rounded-full font-semibold">
+                <Plus />
+                Post
+              </Button>
+            </Link>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
