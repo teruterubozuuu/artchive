@@ -49,9 +49,9 @@ export const config = {
      * - _next/static, _next/image (Next.js internals)
      * - favicon.ico
      * - public files
-     * - API routes (Better Auth handles its own)
+     * - API routes (route handlers handle their own auth)
      */
-    "/((?!_next/static|_next/image|favicon.ico|api/auth|.*\\..*).*)"
+    "/((?!_next/static|_next/image|favicon.ico|api|.*\\..*).*)"
   ],
 };
 

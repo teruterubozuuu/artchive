@@ -1,7 +1,10 @@
-import React from 'react'
+import Appearance from "@/components/app/settings/Appearance";
 
 export default function Settings() {
+
   return (
-    <div>Settings</div>
-  )
+    <div>
+      <Appearance/>
+    </div>
+  );
 }

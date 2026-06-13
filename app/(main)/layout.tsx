@@ -23,18 +23,20 @@ export default function MainAppLayout({
 function AppLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const exemptedRoutes = ["/create-post", "/settings"];
-  const showSearchBar = !exemptedRoutes.includes(pathname)
+  const showSearchBar = !exemptedRoutes.includes(pathname);
 
   return (
-    <div className="h-screen flex">
-        <SidebarProvider>
-          <AppSidebar />
-          <MobileSidebar />
-          <div className="flex-1 p-2">
-          {showSearchBar && <SearchBar/>}
-            <main className="pb-24 md:pb-0">{children}</main>
-          </div>
-        </SidebarProvider>
+    <div className="min-h-svh flex">
+      <SidebarProvider>
+        <AppSidebar />
+        <MobileSidebar />
+        <div className="flex-1 py-2">
+          {showSearchBar && <SearchBar />}
+          <main className="pb-5 md:pb-0 px-2">
+            {children}
+          </main>
+        </div>
+      </SidebarProvider>
     </div>
   );
 }
