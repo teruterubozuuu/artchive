@@ -24,7 +24,7 @@ export default function AppSidebar() {
           <SidebarMenuItem>
             <div className="p-2 flex gap-4 items-center text-md font-medium">
               <Palette className="size-5 shrink-0 text-primary" />
-              <span className="">Artchive</span>
+              <span className="font-bold uppercase tracking-wide font-mono text-xl">Artchive</span>
             </div>
           </SidebarMenuItem>
           {menuItems.map((item) => (
